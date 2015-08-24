@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">G54</string>
+
+    //PREGUNTAS
+    <string name="pregunta_primera">¿Cómo fue <b>nuestra atención</b> el día de hoy?</string>
+    <string name="pregunta_segunda">¿Se sintió <b>atendido con calidez</b>, amabilidad y respeto ?</string>
+    <string name="pregunta_tercera">¿Cómo evalúa la <b>ayuda recibida</b> ?</string>
+
+    //RESPUESTAS
+    <string name="buena">buena</string>
+    <string name="regular">regular</string>
+    <string name="mala">mala</string>
+    <string name="si">si</string>
+    <string name="mas_o_menos">mas o menos</string>
+    <string name="no">no</string>
+
+
+
+    <string name="action_settings">Settings</string>
+</resources>
