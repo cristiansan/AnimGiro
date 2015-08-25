@@ -15,9 +15,12 @@
         android:gravity="center">
 
     <TextView
+        android:id="@+id/pregunta"
         android:text="@string/pregunta_primera"
-        android:layout_width="wrap_content"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:textColor="#ffffff"/>
 
     </LinearLayout>
@@ -27,6 +30,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:layout_weight="1"
         android:orientation="horizontal"
         android:gravity="center">
@@ -34,16 +39,18 @@
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            >
+            android:layout_weight="1">
 
-            <ImageView
-                android:text="@string/si"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <ImageButton
+                android:text="@string/respuesta_si"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
                 android:gravity="center"
                 android:background="@drawable/positive_normal"
-                android:scaleType="fitCenter"/>
+                android:scaleType="fitCenter"
+                android:onClick="submitText"
+                />
 
 
 
@@ -56,13 +63,15 @@
             android:layout_weight="1"
             >
 
-            <ImageView
-                android:text="@string/mas_o_menos"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <ImageButton
+                android:text="@string/respuesta_mas_o_menos"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
                 android:gravity="center"
                 android:background="@drawable/regular_normal"
-                android:scaleType="center"/>
+                android:scaleType="center"
+                android:onClick="submitText"/>
 
 
         </FrameLayout>
@@ -72,12 +81,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
                 android:gravity="center"
                 android:background="@drawable/negative_normal"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                android:onClick="submitText"/>
 
 
         </FrameLayout>
@@ -86,39 +97,47 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:orientation="horizontal"
         android:layout_weight="1">
 
         <TextView
+            android:id="@+id/resp_izquierda"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/si"
+            android:text="@string/respuesta_buena"
             android:textSize="20dp"
             android:textColor="#ffffff"
             android:gravity="center_horizontal"
             android:layout_gravity="center_horizontal|top"
             android:layout_weight="1"
+            android:textAllCaps="true"
             />
 
         <TextView
+            android:id="@+id/resp_central"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/mas_o_menos"
+            android:text="@string/respuesta_regular"
             android:textColor="#ffffff"
             android:textSize="20dp"
             android:gravity="center_horizontal"
             android:layout_gravity="center_horizontal|top"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:textAllCaps="true"/>
 
         <TextView
+            android:id="@+id/resp_derecha"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/no"
+            android:text="@string/respuesta_mala"
             android:textSize="20dp"
             android:textColor="#ffffff"
             android:gravity="center_horizontal"
             android:layout_gravity="center_horizontal|top"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:textAllCaps="true"/>
 
     </LinearLayout>
 
