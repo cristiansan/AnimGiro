@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ public class MainActivity extends Activity {
 
         //más animaciones como: final Animation animShake = AnimationUtils.loadAnimation(this, R.anim.shake);
         final Animation animAlpha = AnimationUtils.loadAnimation(this, R.anim.anim_alpha);
+        final Animation animTranslate = AnimationUtils.loadAnimation(this, R.anim.anim_translate);
 
         //llamando los botones
         ImageButton btnSmile = (ImageButton) findViewById(R.id.button_smile);
@@ -29,7 +31,10 @@ public class MainActivity extends Activity {
         {
             @Override
             public void onClick(View arg0) {
-                arg0.startAnimation(animAlpha);
+                AnimationSet s= new AnimationSet(false);
+                s.addAnimation(animAlpha);
+                s.addAnimation(animTranslate);
+                arg0.startAnimation(s);
                 displaypregunta (getString(R.string.pregunta_segunda));
                 }
         });
@@ -38,7 +43,7 @@ public class MainActivity extends Activity {
         {
             @Override
             public void onClick(View arg0) {
-                arg0.startAnimation(animAlpha);
+                arg0.startAnimation(animTranslate);
                 displaypregunta3(getString(R.string.pregunta_tercera));
                 }
         });
