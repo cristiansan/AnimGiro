@@ -4,13 +4,12 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,53 +21,83 @@ public class MainActivity extends Activity {
         final Animation animTranslate = AnimationUtils.loadAnimation(this, R.anim.anim_translate);
 
         //llamando los botones
-        ImageButton btnSmile = (ImageButton) findViewById(R.id.button_smile);
-        ImageButton btnRegular = (ImageButton) findViewById(R.id.button_regular);
-        ImageButton btnNegative = (ImageButton) findViewById(R.id.button_negative);
+        FrameLayout btnSmile = (FrameLayout) findViewById(R.id.frame_left);
+        FrameLayout btnRegular = (FrameLayout) findViewById(R.id.frame_midle);
+        FrameLayout btnNegative = (FrameLayout) findViewById(R.id.frame_right);
 
         //onclick
-        btnSmile.setOnClickListener(new ImageButton.OnClickListener()
-        {
-            @Override
-            public void onClick(View arg0) {
-                AnimationSet s= new AnimationSet(false);
-                s.addAnimation(animAlpha);
-                s.addAnimation(animTranslate);
-                arg0.startAnimation(s);
-                displaypregunta (getString(R.string.pregunta_segunda));
-                }
-        });
-
-        btnRegular.setOnClickListener(new ImageButton.OnClickListener()
-        {
-            @Override
-            public void onClick(View arg0) {
-                arg0.startAnimation(animTranslate);
-                displaypregunta3(getString(R.string.pregunta_tercera));
-                }
-        });
-
-        btnNegative.setOnClickListener(new ImageButton.OnClickListener()
+        btnSmile.setOnClickListener(new FrameLayout.OnClickListener()
         {
             @Override
             public void onClick(View arg0) {
                 arg0.startAnimation(animAlpha);
-                displaypregunta1 (getString(R.string.pregunta_primera));
+                displaypregunta3(getString(R.string.pregunta_tercera));
+                displayrespuesta3(getString(R.string.pregunta_tercera));
+
+                }
+        });
+
+        btnRegular.setOnClickListener(new FrameLayout.OnClickListener()
+        {
+            @Override
+            public void onClick(View arg0) {
+                arg0.startAnimation(animAlpha);
+                displaypregunta2(getString(R.string.pregunta_primera));
+                displayrespuesta2(getString(R.string.pregunta_tercera));
+                }
+        });
+
+        btnNegative.setOnClickListener(new FrameLayout.OnClickListener()
+        {
+            @Override
+            public void onClick(View arg0) {
+                arg0.startAnimation(animAlpha);
+                displaypregunta1(getString(R.string.pregunta_segunda));
+                displayrespuesta1(getString(R.string.pregunta_tercera));
                 }
         });
 
     }
+
     //mostrar respuestas
-    private void displaypregunta(String pregunta) {
-        TextView preguntaTextView = (TextView) findViewById(R.id.pregunta);
-        preguntaTextView.setText(R.string.pregunta_segunda);
-    }
-    private void displaypregunta3(String pregunta) {
+    private void displaypregunta2(String string) {
         TextView preguntaTextView = (TextView) findViewById(R.id.pregunta);
         preguntaTextView.setText(R.string.pregunta_tercera);
     }
-    private void displaypregunta1(String pregunta) {
+    private void displaypregunta3(String pregunta) {
         TextView preguntaTextView = (TextView) findViewById(R.id.pregunta);
         preguntaTextView.setText(R.string.pregunta_primera);
     }
+    private void displaypregunta1(String pregunta) {
+        TextView preguntaTextView = (TextView) findViewById(R.id.pregunta);
+        preguntaTextView.setText(R.string.pregunta_segunda);
+    }
+
+    private void displayrespuesta3(String string) {
+        TextView respuestaTextView = (TextView) findViewById(R.id.resp_izquierda);
+        respuestaTextView.setText(R.string.respuesta_buena);
+        TextView respuesta2TextView = (TextView) findViewById(R.id.resp_central);
+        respuesta2TextView.setText(R.string.respuesta_regular);
+        TextView respuesta3TextView = (TextView) findViewById(R.id.resp_derecha);
+        respuesta3TextView.setText(R.string.respuesta_buena);
+    }
+
+    private void displayrespuesta2(String string) {
+        TextView respuestaTextView = (TextView) findViewById(R.id.resp_izquierda);
+        respuestaTextView.setText(R.string.respuesta_si);
+        TextView respuesta2TextView = (TextView) findViewById(R.id.resp_central);
+        respuesta2TextView.setText(R.string.respuesta_mas_o_menos);
+        TextView respuesta3TextView = (TextView) findViewById(R.id.resp_derecha);
+        respuesta3TextView.setText(R.string.respuesta_no);
+    }
+
+    private void displayrespuesta1(String string) {
+        TextView respuestaTextView = (TextView) findViewById(R.id.resp_izquierda);
+        respuestaTextView.setText(R.string.respuesta_buena);
+        TextView respuesta2TextView = (TextView) findViewById(R.id.resp_central);
+        respuesta2TextView.setText(R.string.respuesta_regular);
+        TextView respuesta3TextView = (TextView) findViewById(R.id.resp_derecha);
+        respuesta3TextView.setText(R.string.respuesta_buena);
+    }
+
 }
